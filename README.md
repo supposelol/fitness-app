@@ -6,6 +6,6 @@ This app is a React Native project developed for my bootcamp to earn an Honorary
 
 1. **Browse Exercises:** List of exercises with detailed instructions.
    
-2. **Favorites:** Save the favorite exercises for quick access.
+2. **Favorites:** Save your favorite exercises for quick access.
    
 3. **Progress Tracker:** Log and track your fitness journey.
