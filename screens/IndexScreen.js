@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet, } from 'react-native'
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { LinearGradient } from 'expo-linear-gradient';
 import Animated, { FadeInDown } from 'react-native-reanimated';
@@ -13,7 +13,7 @@ const IndexScreen = ({ navigation }) => (
       colors={['transparent', '#18181b']}
       style={styles.gradientContainer}
       start={{ x: 0.5, y: 0 }}
-      end={{ x: 0.5, y: 0.8 }}
+      end={{ x: 0.5, y: 0.7 }}
     >
       <Animated.View entering={FadeInDown.delay(100).springify()} style={styles.textContainer}>
         <Text style={styles.headingText}>
