@@ -1,6 +1,6 @@
 # Fitness App
 
-This app is a React Native project developed for my bootcamp to earn an Honorary Certificate. It leverages the power of RapidAPI to provide a seamless fitness app.
+This app is a React Native project developed for my bootcamp to earn an Honorary Certificate. It leverages the power of RapidAPI to provide a seamless fitness app. Get the API key from here: https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb 
 
 # Features
 
