@@ -17,7 +17,7 @@ const IndexScreen = ({ navigation }) => (
     >
       <Animated.View entering={FadeInDown.delay(100).springify()} style={styles.textContainer}>
         <Text style={styles.headingText}>
-          Embrace <Text style={styles.roseText}>Challenges,</Text>
+          Embrace <Text style={styles.purpleText}>Challenges,</Text>
         </Text>
         <Text style={styles.headingText}>thrive in triumphs</Text>
       </Animated.View>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   gradientContainer: {
     width: wp(100),
-    height: hp(50),
+    height: hp(60),
     justifyContent: 'flex-end',
     paddingBottom: hp(6),
     paddingTop: hp(8),
@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  roseText: {
-    color: '#FF007F',
+  purpleText: {
+    color: '#B26ECE',
   },
   buttonContainer: {
     marginBottom: hp(2),
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   button: {
     height: hp(7),
     width: wp(80),
-    backgroundColor: '#FF007F',
+    backgroundColor: '#824A9C',
     borderRadius: hp(3.5),
     alignItems: 'center',
     justifyContent: 'center',

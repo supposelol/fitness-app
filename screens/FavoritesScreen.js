@@ -1,47 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, Image, FlatList, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
-import { fetchAllExercises } from '../api/exerciseApi';
+import React from 'react';
+import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFavorite } from '../components/favoritesSlice';
+import HeartButton from '../components/heartButton';
 
 const FavoritesScreen = () => {
-  const [favoriteExercisesData, setFavoriteExercisesData] = useState([]);
-  const favoriteExercises = useSelector((state) => state.favoriteExercises);
+  const dispatch = useDispatch();
+  const favoriteExerciseIds = useSelector((state) => state.favoriteExercises.favoriteExercises);
+  const allExercises = useSelector((state) => state.favoriteExercises.allExercises);
 
-  useEffect(() => {
-    const getFavoriteExercisesData = async () => {
-      try {
-        const allExercisesData = await fetchAllExercises();
-        const favoriteExercisesData = allExercisesData.filter((exercise) =>
-          favoriteExercises.includes(exercise.id)
-        );
-        setFavoriteExercisesData(favoriteExercisesData);
-      } catch (error) {
-        console.error('Error fetching favorite exercises data:', error);
-      }
-    };
+  console.log('Favorite exercise IDs:', favoriteExerciseIds);
+  console.log('All exercises:', allExercises);
 
-    getFavoriteExercisesData();
+  const favoriteExercises = allExercises.filter(exercise => favoriteExerciseIds.includes(exercise.id));
+  console.log('Filtered favorite exercises:', favoriteExercises);
 
-  }, [favoriteExercises]);
-
-  const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  const addToFavoritesHandler = (exercise) => {
+    dispatch(toggleFavorite(exercise.id));
   };
+  console.log('All exercise IDs:', allExercises.map(exercise => exercise.id));
+  console.log('Favorite exercise IDs:', favoriteExerciseIds);
+  console.log('Favorite Exercises in State:', useSelector((state) => state.favoriteExercises));
+
+  if (!allExercises.length || !favoriteExerciseIds.length) {
+    console.log('Data not fully loaded yet');
+  }
+  const renderInstructions = (instructions) => (
+    instructions ? <Text style={styles.instructions}>{instructions.join('\n')}</Text> : null
+  );
 
   return (
     <View style={styles.screen}>
       <FlatList
-        data={favoriteExercisesData}
+        data={favoriteExercises}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.container}>
-            <Text style={styles.text}>{capitalizeFirstLetter(item.name)}</Text>
-            {item.instructions && (
-              <Text style={styles.instructions}>{item.instructions}</Text>
-            )}
+            <Text style={styles.text}>{item.name}</Text>
+            <Text style={styles.instructionsText}>{renderInstructions(item.instructions)}</Text>
             {item.gifUrl && (
               <View style={styles.gifContainer}>
                 <Image source={{ uri: item.gifUrl }} style={styles.image} />
+                <HeartButton
+                  isLiked={favoriteExercises.some((ex) => ex.id === item.id)}
+                  onPress={() => addToFavoritesHandler(item)}
+                />
               </View>
             )}
           </View>
@@ -54,7 +57,9 @@ const FavoritesScreen = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: '#1c1c1e',
+    backgroundColor: '#18181b',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   container: {
     backgroundColor: '#333333',
@@ -65,8 +70,9 @@ const styles = StyleSheet.create({
     borderColor: '#18181b',
   },
   text: {
-    color: '#FF007F',
+    color: '#B26ECE',
     fontSize: 20,
+    fontWeight: 'bold',
     textAlign: 'center',
     textTransform: 'capitalize',
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -75,23 +81,25 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     width: '100%',
   },
-  gifContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
+  instructionsText: {
+    textAlign: 'justify',
+    margin: 8,
+    color: 'white',
   },
   image: {
-    width: 220,
-    height: 200,
+    width: 320,
+    height: 240,
     borderColor: '#ddd',
     borderWidth: 10,
     borderRadius: 15,
     padding: 5,
   },
-  instructions: {
-    color: 'white',
-    fontSize: 16,
-    marginBottom: 10,
+  gifContainer: {
+    position: 'relative',
+    alignItems: 'center',
+    marginTop: 16,
   },
+
 });
 
 export default FavoritesScreen;

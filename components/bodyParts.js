@@ -50,4 +50,3 @@ export const bodyParts = [
     image: require('../assets/images/waist.png'),
   }
 ];
-

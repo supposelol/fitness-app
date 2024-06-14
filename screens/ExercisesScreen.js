@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { bodyParts } from '../components/bodyParts';
 
 const ExercisesScreen = () => {
@@ -22,7 +23,13 @@ const ExercisesScreen = () => {
             <View style={styles.bodyPartContainer}>
               <View style={styles.bodyPartContent}>
                 <Image source={item.image} style={styles.image} />
-                <Text style={styles.text}>{item.actualName}</Text>
+                <LinearGradient
+                  colors={['transparent', 'rgba(0,0,0,0.85)']}
+                  style={styles.gradient}
+                  locations={[0.5, 0.8]}
+                >
+                  <Text style={styles.text}>{item.actualName}</Text>
+                </LinearGradient>
               </View>
             </View>
           </TouchableOpacity>
@@ -48,25 +55,34 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   bodyPartContent: {
-    backgroundColor: 'black',
-    padding: 4,
-    borderRadius: 15,
-    borderWidth: 1,
-    borderColor: '#18181b',
+    position: 'relative',
     alignItems: 'center',
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 165,
+    height: 175,
     borderRadius: 10,
+    borderWidth: 1,
+    borderColor: 'white',
+  },
+  gradient: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: '100%',
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    justifyContent: 'flex-end',
+    paddingHorizontal: 5,
+    paddingVertical: 10,
   },
   text: {
-    color: '#FF007F',
-    fontSize: 18.5,
-    marginTop: 6,
-    marginBottom: 4,
+    color: 'white',
+    fontSize: 20,
     textAlign: 'center',
     textTransform: 'capitalize',
+    fontWeight: 'bold',
     textShadowColor: 'rgba(255, 102, 178, 0.3)',
     textShadowOffset: { width: 0.5, height: 1 },
     textShadowRadius: 7,

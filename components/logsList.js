@@ -13,11 +13,11 @@ const LogsList = () => {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.logItem}>
-            <Text style={styles.logItemText}>{`Date: ${item.date}`}</Text>
-            <Text style={styles.logItemText}>{`Workout Name: ${item.workoutName}`}</Text>
-            <Text style={styles.logItemText}>{`Duration: ${item.duration}`}</Text>
-            <Text style={styles.logItemText}>{`Exercises Completed: ${item.exercisesCompleted}`}</Text>
-            <Text style={styles.logItemText}>{`Total Weight Lifted: ${item.totalWeightLifted}`}</Text>
+            <Text style={styles.logItemText}>Date: <Text style={styles.logItemValue}>{item.date}</Text></Text>
+            <Text style={styles.logItemText}>Workout Name: <Text style={styles.logItemValue}>{item.workoutName}</Text></Text>
+            <Text style={styles.logItemText}>Duration: <Text style={styles.logItemValue}>{item.duration}</Text></Text>
+            <Text style={styles.logItemText}>Exercises Completed: <Text style={styles.logItemValue}>{item.exercisesCompleted}</Text></Text>
+            <Text style={styles.logItemText}>Total Weight Lifted: <Text style={styles.logItemValue}>{item.totalWeightLifted}</Text></Text>
           </View>
         )}
       />
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   logsListTitle: {
-    color: '#FF007F',
+    color: '#B26ECE',
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -53,6 +53,10 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     marginBottom: 2,
+  },
+  logItemValue: {
+    color: '#B26ECE',
+    fontStyle: 'italic',
   },
 });
 

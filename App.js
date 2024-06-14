@@ -1,12 +1,21 @@
-import React from 'react';
-import Main from './components/Main';
-import { Provider } from 'react-redux';
+import React, { useEffect } from 'react';
+import { Provider, useDispatch } from 'react-redux';
 import store from './redux/store';
+import { fetchExercises } from './components/exercisesSlice';
+import Main from './components/Main';
 
-export default function App() {
-  return (
-    <Provider store={store}>
-      <Main />
-    </Provider>
-  );
-}
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchExercises());
+  }, [dispatch]);
+
+  return <Main />;
+};
+
+export default () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

@@ -11,9 +11,9 @@ const TabNavigator = () => (
   <Tab.Navigator
     initialRouteName="Exercises"
     screenOptions={{
-      tabBarActiveTintColor: '#FF007F',
+      tabBarActiveTintColor: '#B26ECE',
       tabBarActiveBackgroundColor: 'black',
-      tabBarStyle: {backgroundColor: '#18181b'},
+      tabBarStyle: { backgroundColor: '#18181b' },
     }}
   >
     <Tab.Screen
@@ -34,7 +34,7 @@ const TabNavigator = () => (
         headerShown: false,
         tabBarLabel: "Favorites",
         tabBarIcon: ({ color }) => (
-          <Ionicons name="heart" size={20} color={color}/>
+          <Ionicons name="heart" size={20} color={color} />
         ),
       }}
     />

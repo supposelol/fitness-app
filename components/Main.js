@@ -36,7 +36,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b', //header color
           },
-          headerTintColor: '#FF007F', //text color 
+          headerTintColor: '#B26ECE', //text color 
         }}
       />
       <Stack.Screen
@@ -47,7 +47,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b',
           },
-          headerTintColor: '#FF007F',
+          headerTintColor: '#B26ECE',
         }}
       />
       <Stack.Screen
@@ -58,7 +58,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b',
           },
-          headerTintColor: '#FF007F',
+          headerTintColor: '#B26ECE',
         }}
       />
       <Stack.Screen
@@ -69,7 +69,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b',
           },
-          headerTintColor: '#FF007F',
+          headerTintColor: '#B26ECE',
         }}
       />
       <Stack.Screen
@@ -80,7 +80,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b',
           },
-          headerTintColor: '#FF007F',
+          headerTintColor: '#B26ECE',
         }}
       />
       <Stack.Screen
@@ -91,7 +91,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b',
           },
-          headerTintColor: '#FF007F',
+          headerTintColor: '#B26ECE',
         }}
       />
       <Stack.Screen
@@ -102,7 +102,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b',
           },
-          headerTintColor: '#FF007F',
+          headerTintColor: '#B26ECE',
         }}
       />
       <Stack.Screen
@@ -113,7 +113,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b',
           },
-          headerTintColor: '#FF007F',
+          headerTintColor: '#B26ECE',
         }}
       />
       <Stack.Screen
@@ -124,7 +124,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b',
           },
-          headerTintColor: '#FF007F',
+          headerTintColor: '#B26ECE',
         }}
       />
       <Stack.Screen
@@ -135,7 +135,7 @@ const Main = () => (
           headerStyle: {
             backgroundColor: '#18181b',
           },
-          headerTintColor: '#FF007F',
+          headerTintColor: '#B26ECE',
         }}
       />
     </Stack.Navigator>
